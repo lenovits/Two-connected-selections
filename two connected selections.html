@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Use jQuery to change a second select list based on the first select list option</title>
+</head>
+<body>
+
+<select name="groups" id="groups">
+	<option value="">-- SELECT --</option>
+	<option value="1">group1</option>
+	<option value="2">group2</option>
+	<option value="3">group3</option>
+	<option value="4">group4</option>
+</select>
+
+<select name="codes" id="codes">
+	<option value="">-- SELECT --</option>
+    <option value="1" id="1">code1</option>
+    <option value="2" id="2">code2</option>
+    <option value="3" id="3">code3</option>
+    <option value="4" id="3">code3</option>
+    <option value="5" id="3">code3</option>
+	<option value="6" id="4">code4</option>
+	<option value="7" id="4">code4</option>
+</select>
+
+<script src="jquery-3.1.1.min.js"></script>
+
+<script>
+
+	$('#codes option').hide();
+	
+	$('#groups').on('change',function(){
+		var value=$(this).val();
+	
+		$('#codes option').hide();
+		$('#codes').not(this).find('option[id="'+value+'"]').show();
+	});
+	
+	
+</script>
+ 
+</body>
+</html>
